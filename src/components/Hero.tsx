@@ -37,7 +37,7 @@ const Hero = () => {
             <div className="w-64 h-64 md:w-80 md:h-80 rounded-lg overflow-hidden border-4 border-white shadow-xl">
               <Avatar className="w-full h-full rounded-none">
                 <AvatarImage 
-                  src="/lovable-uploads/60198467-c5ac-4244-8bec-c36ca6c451eb.png" 
+                  src="/assets/profile.png" 
                   alt="Issa Dovale" 
                   className="object-cover w-full h-full"
                 />
