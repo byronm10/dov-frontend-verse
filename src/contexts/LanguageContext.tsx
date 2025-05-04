@@ -1,7 +1,6 @@
+import React, { createContext, useContext, useState, useEffect, ReactNode } from "react";
 
-import React, { createContext, useState, useContext, ReactNode } from 'react';
-
-export type Language = 'en' | 'es';
+export type Language = "en" | "es";
 
 type LanguageContextType = {
   language: Language;
@@ -12,12 +11,13 @@ type LanguageContextType = {
 const translations = {
   en: {
     // Navbar
-    "nav.about": "About",
+    "nav.about": "About Me",
     "nav.experience": "Experience",
     "nav.projects": "Projects",
     "nav.skills": "Skills",
     "nav.contact": "Contact",
-    
+    "nav.backend": "Backend",
+
     // Hero
     "hero.intro": "Hi, I'm",
     "hero.position": "Frontend Engineer",
@@ -98,6 +98,7 @@ const translations = {
     "nav.projects": "Proyectos",
     "nav.skills": "Habilidades",
     "nav.contact": "Contacto",
+    "nav.backend": "Backend", // Add this new translation
     
     // Hero
     "hero.intro": "Hola, soy",

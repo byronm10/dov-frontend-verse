@@ -3,6 +3,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -25,6 +26,7 @@ const Navbar = () => {
     { name: t("nav.experience"), href: "#experience" },
     { name: t("nav.projects"), href: "#projects" },
     { name: t("nav.skills"), href: "#skills" },
+    { name: t("nav.backend"), href: "/backend" }, // Add this new link
     { name: t("nav.contact"), href: "#contact" },
   ];
 
@@ -37,20 +39,30 @@ const Navbar = () => {
     >
       <div className="container-custom flex justify-between items-center">
         {/* Logo */}
-        <a href="#" className="text-xl font-bold text-portfolio-blue">
+        <a href="/" className="text-xl font-bold text-portfolio-blue">
           Issa <span className="text-accent">Dovale</span>
         </a>
 
         {/* Desktop navigation */}
         <div className="hidden md:flex space-x-8 items-center">
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium text-gray-700 hover:text-accent transition-colors"
-            >
-              {link.name}
-            </a>
+            link.href.startsWith('#') ? (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-sm font-medium text-gray-700 hover:text-accent transition-colors"
+              >
+                {link.name}
+              </a>
+            ) : (
+              <Link
+                key={link.name}
+                to={link.href}
+                className="text-sm font-medium text-gray-700 hover:text-accent transition-colors"
+              >
+                {link.name}
+              </Link>
+            )
           ))}
         </div>
 
@@ -112,14 +124,25 @@ const Navbar = () => {
       >
         <div className="container-custom py-4 flex flex-col space-y-4">
           {navLinks.map((link) => (
-            <a
-              key={link.name}
-              href={link.href}
-              className="text-sm font-medium py-2 text-gray-700 hover:text-accent transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              {link.name}
-            </a>
+            link.href.startsWith('#') ? (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-sm font-medium py-2 text-gray-700 hover:text-accent transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {link.name}
+              </a>
+            ) : (
+              <Link
+                key={link.name}
+                to={link.href}
+                className="text-sm font-medium py-2 text-gray-700 hover:text-accent transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                {link.name}
+              </Link>
+            )
           ))}
         </div>
       </div>
