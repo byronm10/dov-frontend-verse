@@ -48,7 +48,7 @@ const Hero = () => {
             </div>
             <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-secondary/70 backdrop-blur-sm rounded-lg border border-white/20 flex items-center justify-center p-4">
               <p className="text-sm text-center font-medium">
-                5+ years of Frontend Experience
+                Frontend Developer
               </p>
             </div>
           </div>
