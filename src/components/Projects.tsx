@@ -1,8 +1,6 @@
 
 import React from "react";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
-import { Github } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Projects = () => {
@@ -62,12 +60,6 @@ const Projects = () => {
                   </div>
                 </div>
               </CardContent>
-              <CardFooter className="border-t bg-gray-50 flex justify-end">
-                <Button variant="outline" className="flex items-center gap-2">
-                  <Github size={16} />
-                  <span>{t("projects.view")}</span>
-                </Button>
-              </CardFooter>
             </Card>
           ))}
         </div>
