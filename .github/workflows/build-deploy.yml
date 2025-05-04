@@ -1,5 +1,5 @@
 
-name: Build and Deploy to S3/CloudFront
+name: Build and Deploy
 
 on:
   push:

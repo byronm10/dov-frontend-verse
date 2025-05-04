@@ -3,6 +3,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import { Avatar, AvatarImage, AvatarFallback } from "@/components/ui/avatar";
 
 const Hero = () => {
   const { t } = useLanguage();
@@ -32,9 +33,18 @@ const Hero = () => {
 
         <div className="order-1 md:order-2 flex justify-center animate-fade-in" style={{ animationDelay: "0.4s" }}>
           <div className="relative">
-            {/* Placeholder for profile image or illustration */}
-            <div className="w-64 h-64 md:w-80 md:h-80 bg-gradient-to-br from-primary/80 to-accent/80 rounded-full flex items-center justify-center">
-              <span className="text-5xl text-white font-bold">ID</span>
+            {/* Profile image with avatar component */}
+            <div className="w-64 h-64 md:w-80 md:h-80 rounded-lg overflow-hidden border-4 border-white shadow-xl">
+              <Avatar className="w-full h-full rounded-none">
+                <AvatarImage 
+                  src="/lovable-uploads/60198467-c5ac-4244-8bec-c36ca6c451eb.png" 
+                  alt="Issa Dovale" 
+                  className="object-cover w-full h-full"
+                />
+                <AvatarFallback className="text-5xl bg-gradient-to-br from-primary/80 to-accent/80 text-white font-bold">
+                  ID
+                </AvatarFallback>
+              </Avatar>
             </div>
             <div className="absolute -bottom-4 -right-4 w-32 h-32 bg-secondary/70 backdrop-blur-sm rounded-lg border border-white/20 flex items-center justify-center p-4">
               <p className="text-sm text-center font-medium">
