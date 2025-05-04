@@ -1,14 +1,10 @@
-
 import React, { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { 
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
+
 } from "@/components/ui/dropdown-menu";
-import { Globe } from "lucide-react";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useLanguage } from "@/contexts/LanguageContext";
 
 const Navbar = () => {
@@ -53,23 +49,30 @@ const Navbar = () => {
 
         {/* Language toggle and mobile menu button */}
         <div className="flex items-center gap-2 md:gap-4">
-          {/* Language dropdown */}
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button variant="ghost" size="icon" className="rounded-full">
-                <Globe className="h-5 w-5" />
-                <span className="sr-only">Toggle language</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-              <DropdownMenuItem onClick={() => setLanguage("en")}>
-                <span className={language === "en" ? "font-bold" : ""}>English</span>
-              </DropdownMenuItem>
-              <DropdownMenuItem onClick={() => setLanguage("es")}>
-                <span className={language === "es" ? "font-bold" : ""}>Español</span>
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          {/* Replace dropdown with toggle group */}
+          <ToggleGroup 
+            type="single" 
+            value={language} 
+            onValueChange={(value) => {
+              if (value) setLanguage(value as "en" | "es");
+            }}
+            className="border rounded-full overflow-hidden"
+          >
+            <ToggleGroupItem 
+              value="en" 
+              className="px-3 py-1.5 text-xs font-medium data-[state=on]:bg-accent data-[state=on]:text-white"
+              aria-label="Toggle English"
+            >
+              EN
+            </ToggleGroupItem>
+            <ToggleGroupItem 
+              value="es" 
+              className="px-3 py-1.5 text-xs font-medium data-[state=on]:bg-accent data-[state=on]:text-white"
+              aria-label="Toggle Spanish"
+            >
+              ES
+            </ToggleGroupItem>
+          </ToggleGroup>
 
           {/* Mobile menu button */}
           <button
