@@ -3,19 +3,22 @@ import React from "react";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Github } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Projects = () => {
+  const { t } = useLanguage();
+
   const projects = [
     {
-      title: "Monkeypox Data Analysis App",
-      description: "A comprehensive data analysis application focused on epidemiological insights from monkeypox case data.",
+      title: t("projects.monkeypox.title"),
+      description: t("projects.monkeypox.description"),
       tech: ["Python", "Jupyter", "Kaggle", "Pandas", "NumPy", "Plotly", "Matplotlib", "Seaborn", "Scikit-Learn", "React"],
-      date: "December 2022",
+      date: t("projects.monkeypox.date"),
       highlights: [
-        "Analyzed monkeypox case data from Kaggle using Python libraries to extract epidemiological insights.",
-        "Performed data cleaning, exploratory analysis, and created user-friendly dashboard visualizations to highlight trends.",
-        "Trained a linear regression model with Scikit-Learn to explore predictive patterns.",
-        "Connected the React frontend with a Python backend enabling real-time updates and data-driven user interactions."
+        t("projects.monkeypox.highlight1"),
+        t("projects.monkeypox.highlight2"),
+        t("projects.monkeypox.highlight3"),
+        t("projects.monkeypox.highlight4")
       ]
     }
   ];
@@ -23,7 +26,7 @@ const Projects = () => {
   return (
     <section id="projects" className="section-padding bg-white">
       <div className="container-custom">
-        <h2 className="section-heading">Featured Projects</h2>
+        <h2 className="section-heading">{t("projects.title")}</h2>
         
         <div className="grid md:grid-cols-1 gap-8">
           {projects.map((project, index) => (
@@ -37,7 +40,7 @@ const Projects = () => {
                 <p className="mb-4 text-gray-700">{project.description}</p>
                 
                 <div className="mb-6">
-                  <h4 className="font-medium mb-2 text-portfolio-blue">Key Features:</h4>
+                  <h4 className="font-medium mb-2 text-portfolio-blue">{t("projects.monkeypox.features")}</h4>
                   <ul className="list-disc pl-5 space-y-1 text-gray-700">
                     {project.highlights.map((highlight, idx) => (
                       <li key={idx}>{highlight}</li>
@@ -46,7 +49,7 @@ const Projects = () => {
                 </div>
                 
                 <div>
-                  <h4 className="font-medium mb-2 text-portfolio-blue">Technologies:</h4>
+                  <h4 className="font-medium mb-2 text-portfolio-blue">{t("projects.technologies")}</h4>
                   <div className="flex flex-wrap gap-2">
                     {project.tech.map((tech, idx) => (
                       <span 
@@ -62,7 +65,7 @@ const Projects = () => {
               <CardFooter className="border-t bg-gray-50 flex justify-end">
                 <Button variant="outline" className="flex items-center gap-2">
                   <Github size={16} />
-                  <span>View Project</span>
+                  <span>{t("projects.view")}</span>
                 </Button>
               </CardFooter>
             </Card>

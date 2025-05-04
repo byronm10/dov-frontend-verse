@@ -1,7 +1,9 @@
 
 import React from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
   const currentYear = new Date().getFullYear();
   
   return (
@@ -16,7 +18,7 @@ const Footer = () => {
           </div>
           
           <div className="text-gray-400 text-sm">
-            <p>&copy; {currentYear} Issa Dovale. All rights reserved.</p>
+            <p>&copy; {currentYear} Issa Dovale. {t("footer.rights")}</p>
           </div>
         </div>
       </div>

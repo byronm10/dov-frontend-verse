@@ -1,39 +1,39 @@
 
 import React from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const About = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="about" className="section-padding bg-white">
       <div className="container-custom">
-        <h2 className="section-heading">About Me</h2>
+        <h2 className="section-heading">{t("about.title")}</h2>
         
         <div className="grid md:grid-cols-2 gap-12">
           <div>
             <p className="text-lg text-gray-700 mb-6">
-              I'm a <strong className="text-portfolio-blue">Computer and System Engineer</strong> specialized in Fullstack development 
-              with a primary focus on creating exceptional frontend experiences.
+              {t("about.intro")}<strong className="text-portfolio-blue">{t("about.profession")}</strong>
+              {t("about.specialized")}
             </p>
             <p className="text-lg text-gray-700 mb-6">
-              Growth-oriented and collaborative, I bring strong experience in projects focused on data insights 
-              and user-friendly dashboard visualizations. My technical expertise includes web development with 
-              a focus on framework architectures, UX/UI design, and web services.
+              {t("about.growth")}
             </p>
             <p className="text-lg text-gray-700">
-              I'm driven by continuous learning and thrive in dynamic work environments where I can 
-              achieve both professional and personal growth while delivering high-quality solutions.
+              {t("about.driven")}
             </p>
           </div>
           
           <div className="flex flex-col justify-center space-y-6">
             <div className="bg-gray-50 rounded-lg p-6 border-l-4 border-accent shadow-sm">
-              <h3 className="text-xl font-semibold mb-2 text-portfolio-blue">Education</h3>
-              <p className="font-medium">Universidad del Norte</p>
-              <p className="text-gray-600">Bachelor's Degree in Computer Science</p>
-              <p className="text-sm text-gray-500">January 2017 - March 2023</p>
+              <h3 className="text-xl font-semibold mb-2 text-portfolio-blue">{t("about.education")}</h3>
+              <p className="font-medium">{t("about.university")}</p>
+              <p className="text-gray-600">{t("about.degree")}</p>
+              <p className="text-sm text-gray-500">{t("about.period")}</p>
             </div>
             
             <div className="bg-gray-50 rounded-lg p-6 border-l-4 border-primary shadow-sm">
-              <h3 className="text-xl font-semibold mb-2 text-portfolio-blue">Relevant Coursework</h3>
+              <h3 className="text-xl font-semibold mb-2 text-portfolio-blue">{t("about.coursework")}</h3>
               <div className="grid grid-cols-2 gap-2">
                 <div className="flex items-center">
                   <div className="w-2 h-2 rounded-full bg-accent mr-2"></div>

@@ -2,29 +2,32 @@
 import React from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Briefcase } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Experience = () => {
+  const { t } = useLanguage();
+
   const experiences = [
     {
-      title: "Bootcamp Instructor",
-      company: "Talento TECH",
-      period: "February 2024 - September 2024",
-      location: "Barranquilla, Colombia",
+      title: t("experience.instructor.title"),
+      company: t("experience.instructor.company"),
+      period: t("experience.instructor.period"),
+      location: t("experience.instructor.location"),
       responsibilities: [
-        "Delivered theoretical and practical instruction in Python programming to demonstrate frontend-focused applications powered by AI.",
-        "Designed and taught a study plan covering core concepts, best practices in UI/UX design, responsive layout, and accessibility to create seamless and professional user interfaces.",
-        "Guided students in real-world AI projects and promoted problem-solving through hands-on exercises and code reviews."
+        t("experience.instructor.resp1"),
+        t("experience.instructor.resp2"),
+        t("experience.instructor.resp3")
       ]
     },
     {
-      title: "IT Consultant Engineer",
-      company: "Cisco Technologies",
-      period: "February 2023 - August 2023",
-      location: "Barranquilla, Colombia",
+      title: t("experience.cisco.title"),
+      company: t("experience.cisco.company"),
+      period: t("experience.cisco.period"),
+      location: t("experience.cisco.location"),
       responsibilities: [
-        "Technical Consultant Engineer with strong experience in Cisco Wireless technologies, implementing responsive web interfaces for Cisco's Customer On-Premises network management dashboards using React.js, optimizing user interaction with complex wireless systems including WLCs.",
-        "Proficient in networking solutions such as mesh networks, web authentication, RADIUS, TACACS, and SSL for secure connectivity.",
-        "Transformed real-time monitoring interfaces for wireless network, with a proven track record in diagnosing and resolving performance, using WebSockets, React hooks and Tailwind CSS on mid-size Organizations."
+        t("experience.cisco.resp1"),
+        t("experience.cisco.resp2"),
+        t("experience.cisco.resp3")
       ]
     }
   ];
@@ -32,7 +35,7 @@ const Experience = () => {
   return (
     <section id="experience" className="section-padding bg-gray-50">
       <div className="container-custom">
-        <h2 className="section-heading">Professional Experience</h2>
+        <h2 className="section-heading">{t("experience.title")}</h2>
         
         <div className="space-y-8 relative before:absolute before:left-5 before:top-0 before:h-full before:w-0.5 before:bg-gray-200 ml-10">
           {experiences.map((exp, index) => (

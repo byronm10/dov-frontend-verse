@@ -2,28 +2,30 @@
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { ArrowDown } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Hero = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="min-h-screen flex items-center pt-16 relative bg-gradient-to-br from-gray-50 to-blue-50">
       <div className="container-custom grid md:grid-cols-2 gap-10 items-center">
         <div className="order-2 md:order-1 animate-fade-in" style={{ animationDelay: "0.2s" }}>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold font-heading leading-tight text-portfolio-blue mb-4">
-            Hi, I'm <span className="text-accent">Issa Dovale</span>
+            {t("hero.intro")} <span className="text-accent">Issa Dovale</span>
           </h1>
           <h2 className="text-xl md:text-2xl text-portfolio-darkGray font-medium mb-6">
-            Frontend Engineer
+            {t("hero.position")}
           </h2>
           <p className="text-lg text-gray-600 mb-8 max-w-lg">
-            I build responsive, user-friendly web applications with modern technologies 
-            focused on clean code and exceptional user experiences.
+            {t("hero.description")}
           </p>
           <div className="flex flex-wrap gap-4">
             <Button asChild className="bg-accent hover:bg-accent/90">
-              <a href="#contact">Get in Touch</a>
+              <a href="#contact">{t("hero.contact")}</a>
             </Button>
             <Button asChild variant="outline">
-              <a href="#projects">View My Work</a>
+              <a href="#projects">{t("hero.work")}</a>
             </Button>
           </div>
         </div>
@@ -47,7 +49,7 @@ const Hero = () => {
         href="#about" 
         className="absolute bottom-10 left-1/2 transform -translate-x-1/2 flex flex-col items-center text-sm text-gray-500 hover:text-accent transition-colors"
       >
-        <span className="mb-2">Scroll Down</span>
+        <span className="mb-2">{t("hero.scroll")}</span>
         <ArrowDown className="animate-bounce" size={20} />
       </a>
     </section>

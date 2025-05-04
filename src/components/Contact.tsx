@@ -4,17 +4,20 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Phone, Mail, Linkedin, Github } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Contact = () => {
+  const { t } = useLanguage();
+
   return (
     <section id="contact" className="section-padding bg-white">
       <div className="container-custom">
-        <h2 className="section-heading">Get In Touch</h2>
+        <h2 className="section-heading">{t("contact.title")}</h2>
         
         <div className="grid md:grid-cols-2 gap-12">
           <div>
             <p className="text-lg text-gray-700 mb-6">
-              I'm always open to discussing new projects, creative ideas or opportunities to be part of your visions.
+              {t("contact.description")}
             </p>
             
             <div className="space-y-4 mb-8">
@@ -23,7 +26,7 @@ const Contact = () => {
                   <Phone size={20} className="text-portfolio-lightBlue" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-medium text-gray-500">Phone</h4>
+                  <h4 className="text-sm font-medium text-gray-500">{t("contact.phone")}</h4>
                   <p className="font-medium">+57 300 843 6030</p>
                 </div>
               </div>
@@ -33,7 +36,7 @@ const Contact = () => {
                   <Mail size={20} className="text-portfolio-purple" />
                 </div>
                 <div>
-                  <h4 className="text-sm font-medium text-gray-500">Email</h4>
+                  <h4 className="text-sm font-medium text-gray-500">{t("contact.email")}</h4>
                   <a href="mailto:issaddm@hotmail.com" className="font-medium hover:text-accent transition-colors">
                     issaddm@hotmail.com
                   </a>
@@ -66,27 +69,27 @@ const Contact = () => {
             <form className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">Name</label>
-                  <Input id="name" placeholder="Your name" />
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">{t("contact.name")}</label>
+                  <Input id="name" placeholder={t("contact.yourname")} />
                 </div>
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">Email</label>
-                  <Input id="email" type="email" placeholder="Your email" />
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">{t("contact.email")}</label>
+                  <Input id="email" type="email" placeholder={t("contact.youremail")} />
                 </div>
               </div>
               
               <div>
-                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">Subject</label>
-                <Input id="subject" placeholder="Subject" />
+                <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-1">{t("contact.subject")}</label>
+                <Input id="subject" placeholder={t("contact.subject")} />
               </div>
               
               <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">Message</label>
-                <Textarea id="message" rows={5} placeholder="Your message" />
+                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">{t("contact.message")}</label>
+                <Textarea id="message" rows={5} placeholder={t("contact.message")} />
               </div>
               
               <Button type="submit" className="w-full bg-accent hover:bg-accent/90">
-                Send Message
+                {t("contact.send")}
               </Button>
             </form>
           </div>
